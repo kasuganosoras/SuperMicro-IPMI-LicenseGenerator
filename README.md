@@ -37,6 +37,12 @@ echo -n '你的 MAC 地址' | xxd -r -p | openssl dgst -sha1 -mac HMAC -macopt h
 
 登录你的主板 IPMI，首页就能看到 BMC MAC 地址
 
+## 怎么激活？
+
+登录 IPMI，找到下拉栏的 Other（其他），然后 Activate License 这个页面
+
+把生成出来的 License Key 填进去就行了
+
 ## 开源协议
 
 本项目使用 MIT 协议开源
