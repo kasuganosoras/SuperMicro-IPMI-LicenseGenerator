@@ -19,6 +19,7 @@ SuperMicro 超微主板 IPMI 高级功能授权解锁 Key 生成工具，使用 
 
 ```php
 <?php
+include('supermicro.php');
 $supermicro = new Supermicro();
 echo $supermicro->getLicense("这里填写你的 IPMI MAC 地址");
 ```
