@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+		<title>SuperMicro IPMI License Generator</title>
+		<style>body{background:#eee}.form-control{font-family:Consolas;}.main{margin-top:64px;border:1px solid #ccc;padding:10px 32px 16px 32px;background:#FFF;box-shadow:0px 0px 12px rgba(0,0,0,0.3)}</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6 main">
+					<h3>SuperMicro IPMI License Generator</h3>
+					<p>This is a helpful tool, It can generate the SuperMicro's motherboard IPMI Activate License keys, And it is free and open-source.</p>
+					<hr />
+					<p>First, input your IPMI BMC-MAC here:</p>
+					<p><div class="input-group">
+						<input id="input" class="form-control" placeholder="You BMC-MAC" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="button">Generate</button>
+						</span>
+					</div></p>
+					<p>Then, click the Generate button, your will get the license key:</p>
+					<p><input id="output" class="form-control" readonly placeholder="License Key" onclick="this.select()" /></p>
+					<p>If you like this tool, please give me a star, thank you.</p>
+					<hr>
+					<p>Github project: <a href="https://github.com/kasuganosoras/SuperMicro-IPMI-LicenseGenerator" target="_blank">kasuganosoras/SuperMicro-IPMI-LicenseGenerator</a></p>
+					<p>Thanks for: <a href="https://www.v2ex.com/member/azh7138m" target="_blank">@azh7138m</a>, <a href="https://github.com/Seldaek" target="_blank">@Seldaek</a></p>
+				</div>
+			</div>
+		</div>
+		<script src="./src/main.js"></script>
+	</body>
+</html>
