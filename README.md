@@ -1,5 +1,5 @@
 # SuperMicro IPMI 授权生成器
-SuperMicro 超微主板 IPMI 高级功能授权解锁 Key 生成工具，使用 PHP 编写
+SuperMicro 超微主板 IPMI 高级功能授权解锁 Key 生成工具，使用多种语言编写
 
 超微的主板自带的 IPMI 有些高级功能是需要授权才能解锁的，比如在线更新 BIOS，RAID 管理等等，但是我找半天也不知道这个 Key 在哪……
 
