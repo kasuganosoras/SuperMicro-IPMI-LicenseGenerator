@@ -34,6 +34,14 @@ echo -n '你的 MAC 地址' | xxd -r -p | openssl dgst -sha1 -mac HMAC -macopt h
 
 ![img](https://i.imgur.com/IjI8nY5.gif)
 
+## 多语言
+
+什么你不喜欢 PHP？那就试下其他语言吧，还有 Python、Go、Java、JavaScript 版本可选
+
+JavaScript 版本是 [@muzea](https://github.com/muzea) 大佬做的，很惭愧，我只是做了个微小的 UI。
+
+其他语言也是从咕鸽上搜索来东拼西凑做成的，凑合着看吧……
+
 ## BMC MAC 地址在哪查看？
 
 登录你的主板 IPMI，首页就能看到 BMC MAC 地址
