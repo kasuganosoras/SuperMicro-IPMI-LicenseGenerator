@@ -9,13 +9,31 @@ SuperMicro 超微主板 IPMI 高级功能授权解锁 Key 生成工具，使用�
 2. 使用 HMAC + SHA1 散列算法计算出 Key
 3. 取前 24 位作为授权密钥
 
-我寻思那挺简单啊……于是就用 PHP 给它写了个生成工具出来。
+我寻思那挺简单啊……于是就给它写了个生成工具出来。
 
-在线版：`https://tql.ink/ipmi/?mac=<你的 MAC>`
+在线版：https://tql.ink/ipmi/
+
+API 调用：`https://tql.ink/ipmi/api.php?mac=<你的 BMC MAC>`
 
 ## 使用方法
 
-使用方法很简单：
+你可以直接使用网页版，最方便，也可以自己下载下来编译运行玩
+
+先 `git clone` 下来，然后选择一个你喜欢的语言，如果需要编译就编译一下，脚本语言例如 php python 可以直接运行
+
+然后执行方法：
+
+```
+命令 <你的 BMC MAC>
+```
+
+例如
+
+```
+java main 0c:c4:7a:3e:2f:de
+```
+
+PHP 类引用的方法：
 
 ```php
 <?php
@@ -41,6 +59,8 @@ echo -n '你的 MAC 地址' | xxd -r -p | openssl dgst -sha1 -mac HMAC -macopt h
 JavaScript 版本是 [@muzea](https://github.com/muzea) 大佬做的，很惭愧，我只是做了个微小的 UI。
 
 其他语言也是从咕鸽上搜索来东拼西凑做成的，凑合着看吧……
+
+目前我就会这几种语言了，如果你会其他语言的话，可以尝试自行实现生成，然后欢迎提交 Pr~
 
 ## BMC MAC 地址在哪查看？
 
