@@ -1,43 +1,34 @@
 <?php
 class Supermicro {
-	
-	private function getBin($hexdata)
-	{
-		$bindata = "";
-		for ($i = 0;$i < strlen($hexdata);$i += 2) {
-			$bindata .= chr(hexdec(substr($hexdata, $i, 2)));
-		}
-		return $bindata;
-	}
-	
-	private function getKey($dmac)
-	{
-		return substr(hash_hmac("sha1", $this->getBin($dmac), hex2bin('8544E3B47ECA58F9583043F8')), 0, 24);
-	}
-	
-	public function getLicense($mac, $source = false)
-	{
-		$mac = str_replace(":", "", $mac);
-		if(preg_match("/^[a-z0-9]{12}$/", $mac)) {
-			$key = $this->getKey($mac);
-			if(empty($key)) {
-				return false;
-			}
-			if($source) {
-				return $key;
-			}
-			$s = 0;
-			$result = "";
-			for($i = 0;$i < strlen($key);$i++) {
-				$s++;
-				$result .= $key[$i];
-				if($s == 4 && $i !== strlen($key) - 1) {
-					$result .= "-";
-					$s = 0;
-				}
-			}
-			return $result;
-		}
-		return false;
-	}
+
+    const SUPERMICRO_OOB_PRIVATE_KEY_HEX = '8544E3B47ECA58F9583043F8';
+
+    /**
+     * @param string $BMC_MAC
+     * @return string
+     */
+    public function getLicense(string $BMC_MAC, bool $source = false)
+    {
+        $key = $this->getKey($BMC_MAC);
+        return $source ? $key : implode(
+            ' - ',
+            array_slice(
+                str_split(
+                    $key, 4
+                ), 0, 6
+            )
+        );
+    }
+
+    protected function getKey(string $BMC_MAC)
+    {
+        return hash_hmac(
+            'sha1',
+            hex2bin(
+                preg_replace(
+                    '![^A-F0-9]!i', '', $BMC_MAC
+                )
+            ), hex2bin(self::SUPERMICRO_OOB_PRIVATE_KEY_HEX)
+        );
+    }
 }
